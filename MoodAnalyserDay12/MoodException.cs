@@ -4,7 +4,20 @@ using System.Text;
 
 namespace MoodAnalyserDay12
 {
-    class MoodException
+    public class MoodAnalyserCustomException : Exception
     {
+        ExceptionType type;
+        public enum ExceptionType
+        {
+            NO_SUCH_CLASS,
+            NO_SUCH_METHOD,
+            EMPTY_MESSAGE,
+            NULL_MESSAGE,
+        }
+
+        public MoodAnalyserCustomException(ExceptionType type, string message) : base(message)
+        {
+            this.type = type;
+        }
     }
 }
